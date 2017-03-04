@@ -1,7 +1,7 @@
 # Summary
 
 * [Introduction](README.md)
-* [What is S3](what-is-s3.md)
+* [AWS S3](what-is-s3.md)
 * [S3 Buckets](chapter1.md)
 * [S3 Objects](s3-objects.md)
 * [S3 Gate Keepers ](create-s3-buckets.md)
