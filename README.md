@@ -10,7 +10,8 @@
 * [Introduction](#introduction)
 * [What is S3](#s3)
 * [S3 buckets](/chapter1.md)
-* S3 objects
+* [S3 objects](/s3-objects.md)
+* ACL and Policies
 
 # 
 
@@ -150,5 +151,45 @@ You can think of objects as a file. An object has,
 * Data
 * MetaData
 
+# ACL's & Policies
 
+---
+
+ACL's and policies are the gate keepers for your data in S3.
+
+##### ACL - Access Control List
+
+This is how an ACL looks like if you are curious.
+
+* Every Bucket and object has an ACL
+* Every
+
+![](/assets/s3_acl.jpg)
+
+# Archiving & Backup
+
+---
+
+Archiving
+
+* Archiving is for space management and long term retention.
+
+Backup
+
+* Backup is for recovery from hardware of data corruption. This is the the data that is needed for near term business continuity 
+
+Here are few way you can use to
+
+|  |  |
+| :--- | :--- |
+| LifeCycle |  |
+| Glacier |  |
+| Google Cloud Platform |  |
+| Microsoft - Azure |  |
+
+#### LifeCycle
+
+#### Glacier
+
+Google Cloud Platform
 
