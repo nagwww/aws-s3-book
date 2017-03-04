@@ -35,22 +35,9 @@ Option 2 :
 
 Contributors
 
-
-
 # What is S3 {#s3}
 
 ---
-
-Table of Contents
-
-|  |  |
-| :--- | :--- |
-| What is S3 | \#bucket |
-| S3 Buckets |  |
-| S3 Objects |  |
-| S3 ACL |  |
-
-What is S3
 
 S3 stands for **S**imple **S**torage **S**ervice. An Amazon service which was released on
 
