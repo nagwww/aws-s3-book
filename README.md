@@ -1,4 +1,4 @@
-# Introduction
+# Introduction..
 
 ---
 
@@ -11,7 +11,7 @@ Here are some basics of data
 * Each of the 0's and 1's is called a bit - Binary digit
 * Eight bits form a Byte
 
-##### Running code and examples [ test ]
+##### Running code and examples \[ test \]
 
 Option 1 :
 
