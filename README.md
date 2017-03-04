@@ -10,6 +10,7 @@
 * [Introduction](#introduction)
 * [What is S3](#s3)
 * [S3 buckets](/chapter1.md)
+* S3 objects
 
 # 
 
@@ -148,8 +149,6 @@ You can think of objects as a file. An object has,
 
 * Data
 * MetaData
-
-
 
 
 
