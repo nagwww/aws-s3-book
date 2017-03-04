@@ -11,5 +11,5 @@
 * [S3 Compliance & Auditing](misc.md)
 * [S3 Auditing & Logs](s3-auditing-and-logs.md)
 * [How to host a website on S3](how-to-host-a-website-on-s3.md)
-* S3 Notifications
+* [S3 Notifications](s3-notifications.md)
 
