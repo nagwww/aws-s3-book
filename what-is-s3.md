@@ -1,19 +1,20 @@
+---
+plugins:
+  - anchors
+---
+
 # What is S3
 
 ---
-
-
 
 Table of Contents
 
 |  |  |
 | :--- | :--- |
-| What is S3 | \#bucket  |
+| What is S3 | \#bucket |
 | S3 Buckets |  |
 | S3 Objects |  |
 | S3 ACL |  |
-
-
 
 What is S3
 
@@ -26,10 +27,12 @@ S3 is used to store your data on internet. In layman terms
 * Imagine like a Folder in your C drive. Just that the Folder is present on internet.
 * Imagine like a Directory on your UNIX/UBUNTU server, just that the directory is on internet.
 
- ?![](/assets/s31.jpg)
+  ?![](/assets/s31.jpg)
 
 * You can store your personal files \( Photos, videos, documents \). Why buy an external hard drive you can as well use S3
+
 * Database administrators can use it to store the RMAN Backups
+
 * Do you have a website, then you can store your static pages like Images, Java Script, HTML,CSS.
 
 # S3 buckets {#buckets}
@@ -114,8 +117,6 @@ if __name__ == "__main__":
    for bucket in all_buckets:
        print bucket["Name"], "Created on ", bucket["CreationDate"]
 ```
-
-
 
 
 
