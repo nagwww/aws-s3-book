@@ -10,6 +10,7 @@
 * [Introduction](#introduction)
 * [What is S3](#s3)
 * [S3 buckets](/chapter1.md)
+  * [Create](#create-an-s3-bucket) 
 * [S3 objects](/s3-objects.md)
 * [ACL and Policies](#acls--policies)
 * [S3 Security](/s3-and-security.md)
@@ -193,8 +194,6 @@ Here are few way you can use to
 #### Glacier
 
 Google Cloud Platform
-
-
 
 # S3 and Security
 
