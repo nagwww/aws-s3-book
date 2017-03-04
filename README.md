@@ -10,7 +10,7 @@
 * [Introduction](#introduction)
 * [What is S3](#s3)
 * [S3 buckets](/chapter1.md)
-  * [Create](#create-an-s3-bucket) 
+  * [Create](#create-an-s3-bucket) / Delete / List 
 * [S3 objects](/s3-objects.md)
 * [ACL and Policies](#acls--policies)
 * [S3 Security](/s3-and-security.md)
