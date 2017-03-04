@@ -1,18 +1,13 @@
 
 ---
 
-#                                               AWS S3
-
-```
-                                                                                                                                                                       Authors & [How to contribute](https://nagarun.wordpress.com/2016/12/07/how-to-contribute-to-opensource/) 
-```
+# AWS S3
 
 ---
 
 ###### Table of Contents
 
-* Introduction
-* # 
+* [Introduction](#introduction)
 
 # 
 
