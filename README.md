@@ -15,7 +15,9 @@
 * [ACL and Policies](#acls--policies)
 * [S3 Security](/s3-and-security.md)
 
-# 
+
+
+You can checkout all the examples in this book at https://github.com/nagwww/101-AWS-S3-Hacks 
 
 # 
 
@@ -65,7 +67,7 @@ S3 is used to store your data on internet. In layman terms
 
 ---
 
-Amazon Bucket is a container of data. In technical terms “A bucket is a Container or Folder with objects Inside”.
+Amazon Bucket is a container of data. In technical terms “A bucket is a Container with objects Inside”.
 
 A few things to keep in mind when working with AWS S3 buckets,
 
@@ -83,25 +85,34 @@ Using AWS CLI :
 
 ```py
 """
-TO Create an S3 bucket named : us-east-1.nag-bucket
+- Hack    : Create an Bucket in S3
+- AWS CLI : aws s3api create-bucket  --bucket us-east-1.nag
 """
+
 import boto3
 
 if __name__ == "__main__":
-   client = boto3.client('s3')
-   bucket_name = "us-east-1.nag-bucket"
-   print client.create_bucket(Bucket=bucket_name)
+    client = boto3.client('s3')
+    bucketname = "us-east-1.nag"
+    print client.create_bucket(Bucket=bucketname)
+
 ```
 
 To create an S3 bucket in a different AWS region
 
 ```py
+"""
+- Hack    : Create an Bucket in S3
+- AWS CLI : aws s3api create-bucket  --bucket us-west-1.nag --region us-west-1 --create-bucket-configuration LocationConstraint=us-west-1
+
+"""
+
 import boto3
 
 if __name__ == "__main__":
-   client = boto3.client('s3')
-   bucketname = "eu-west-1.nag-bucket"
-   print client.create_bucket(Bucket=bucketname, CreateBucketConfiguration={ 'LocationConstraint': 'eu-west-1' })
+    client = boto3.client('s3')
+    bucketname = "us-west-1.nag"
+    print client.create_bucket(Bucket=bucketname, CreateBucketConfiguration={'LocationConstraint': 'us-west-1'})
 ```
 
 #### Delete an S3 Bucket {#bucket}
@@ -120,12 +131,18 @@ if __name__ == "__main__":
 To delete a S3 bucket in a different region
 
 ```py
+
+"""
+- Hack   : Delete an Bucket in S3
+- AWS CLI: aws s3api delete-bucket --bucket us-west-1.nag ( You do not have to specify the region when deleting the bucket )
+"""
+
 import boto3
 
 if __name__ == "__main__":
-   client = boto3.client('s3',region_name="eu-west-1")
-   bucket_name = "eu-west-1.nag"
-   print client.delete_bucket(Bucket=bucket_name)
+    client = boto3.client('s3', region_name="us-west-1")
+    bucket_name = "us-west-1.nag"
+    print client.delete_bucket(Bucket=bucket_name)
 ```
 
 #### Find out all the S3 buckets in  your AWS Account.
@@ -144,6 +161,8 @@ if __name__ == "__main__":
        print bucket["Name"], "Created on ", bucket["CreationDate"]
 ```
 
+# 
+
 # S3 Objects
 
 ---
@@ -152,6 +171,10 @@ You can think of objects as a file. An object has,
 
 * Data
 * MetaData
+
+
+
+
 
 # ACL's & Policies
 
@@ -182,12 +205,14 @@ Backup
 
 Here are few way you can use to
 
-|  |  |
-| :--- | :--- |
-| LifeCycle |  |
-| Glacier |  |
-| Google Cloud Platform |  |
-| Microsoft - Azure |  |
+
+
+|  |
+| :--- |
+| LifeCycle |
+| Glacier |
+| Google Cloud Platform |
+| Microsoft - Azure |
 
 #### LifeCycle
 
