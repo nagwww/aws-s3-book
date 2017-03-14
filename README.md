@@ -10,14 +10,12 @@
 * [Introduction](#introduction)
 * [What is S3](#s3)
 * [S3 buckets](/chapter1.md)
-  * [Create](#create-an-s3-bucket) / Delete / List 
+  * [Create](#create-an-s3-bucket) / [Delete](#bucket) / [List](#find-out-all-the-s3-buckets-in-your-aws-account) / Tag 
 * [S3 objects](/s3-objects.md)
 * [ACL and Policies](#acls--policies)
 * [S3 Security](/s3-and-security.md)
 
-
-
-You can checkout all the examples in this book at https://github.com/nagwww/101-AWS-S3-Hacks 
+You can checkout all the examples in this book at [https://github.com/nagwww/101-AWS-S3-Hacks](https://github.com/nagwww/101-AWS-S3-Hacks)
 
 # 
 
@@ -85,7 +83,7 @@ Using AWS CLI :
 
 ```py
 """
-- Hack    : Create an Bucket in S3
+- Hack    : Create a Bucket in S3
 - AWS CLI : aws s3api create-bucket  --bucket us-east-1.nag
 """
 
@@ -95,14 +93,13 @@ if __name__ == "__main__":
     client = boto3.client('s3')
     bucketname = "us-east-1.nag"
     print client.create_bucket(Bucket=bucketname)
-
 ```
 
 To create an S3 bucket in a different AWS region
 
 ```py
 """
-- Hack    : Create an Bucket in S3
+- Hack    : Create a Bucket in S3 ( Different region )
 - AWS CLI : aws s3api create-bucket  --bucket us-west-1.nag --region us-west-1 --create-bucket-configuration LocationConstraint=us-west-1
 
 """
@@ -120,18 +117,23 @@ if __name__ == "__main__":
 To delete a S3 bucket
 
 ```py
+"""
+- Hack   : Delete an Bucket in S3
+- AWS CLI: aws s3api delete-bucket --bucket us-east-1.nag
+"""
+
 import boto3
 
 if __name__ == "__main__":
-   client = boto3.client('s3')
-   bucket_name = "101-s3-aws-1"
-   print client.delete_bucket(Bucket=bucket_name)
+    client = boto3.client('s3')
+    bucket_name = "us-east-1.nag"
+    print client.delete_bucket(Bucket=bucket_name)
+
 ```
 
 To delete a S3 bucket in a different region
 
 ```py
-
 """
 - Hack   : Delete an Bucket in S3
 - AWS CLI: aws s3api delete-bucket --bucket us-west-1.nag ( You do not have to specify the region when deleting the bucket )
@@ -145,13 +147,18 @@ if __name__ == "__main__":
     print client.delete_bucket(Bucket=bucket_name)
 ```
 
-#### Find out all the S3 buckets in  your AWS Account.
+#### Find out all the S3 buckets in your AWS Account.
 
 By default you can only create 101 S3 buckets in an AWS account. If needed you can work with AWS to increase the limit,
 
 Here is a quick script to list all the S3 buckets in your account
 
 ```py
+"""
+- Author : Nag m
+- Hack   : List all the S3 buckets in an account
+"""
+
 import boto3
 
 if __name__ == "__main__":
@@ -161,7 +168,7 @@ if __name__ == "__main__":
        print bucket["Name"], "Created on ", bucket["CreationDate"]
 ```
 
-# 
+#### 
 
 # S3 Objects
 
@@ -171,10 +178,6 @@ You can think of objects as a file. An object has,
 
 * Data
 * MetaData
-
-
-
-
 
 # ACL's & Policies
 
@@ -204,8 +207,6 @@ Backup
 * Backup is for recovery from hardware of data corruption. This is the the data that is needed for near term business continuity 
 
 Here are few way you can use to
-
-
 
 |  |
 | :--- |
