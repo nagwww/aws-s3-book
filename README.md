@@ -171,7 +171,7 @@ if __name__ == "__main__":
 
 Tagging helps you to add custom metadata to your S3 bucket. Tags are of  key and value format, here is what a tag looks like,
 
-Create a tag
+##### Create a tag
 
 ```
 """
@@ -192,8 +192,13 @@ if __name__ == "__main__":
             },
         ]
     })
-
 ```
+
+##### Retrive a tag
+
+
+
+##### Deleted a tag
 
 # S3 Objects
 
