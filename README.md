@@ -10,7 +10,7 @@
 * [Introduction](#introduction)
 * [What is S3](#s3)
 * [S3 buckets](/chapter1.md)
-  * [Create](#create-an-s3-bucket) / [Delete](#bucket) / [List](#find-out-all-the-s3-buckets-in-your-aws-account) / Tag 
+  * [Create](#create-an-s3-bucket) / [Delete](#bucket) / [List](#find-out-all-the-s3-buckets-in-your-aws-account) / [Tag](#tag-a-bucket) 
 * [S3 objects](/s3-objects.md)
 * [ACL and Policies](#acls--policies)
 * [S3 Security](/s3-and-security.md)
@@ -211,6 +211,21 @@ if __name__ == "__main__":
 ```
 
 ##### Deleted a tag
+
+```py
+"""
+- Hack   : Delete bucket tagging
+- AWS CLI: aws s3api delete-bucket-tagging --bucket us-west-2.nag
+"""
+
+import boto3
+
+if __name__ == "__main__":
+   client = boto3.client('s3')
+   bucketname = "us-west-2.nag"
+   print client.delete_bucket_tagging(Bucket=bucketname)
+
+```
 
 # S3 Objects
 
