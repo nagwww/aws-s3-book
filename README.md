@@ -128,7 +128,6 @@ if __name__ == "__main__":
     client = boto3.client('s3')
     bucket_name = "us-east-1.nag"
     print client.delete_bucket(Bucket=bucket_name)
-
 ```
 
 To delete a S3 bucket in a different region
@@ -168,7 +167,33 @@ if __name__ == "__main__":
        print bucket["Name"], "Created on ", bucket["CreationDate"]
 ```
 
-#### 
+#### Tag a Bucket
+
+Tagging helps you to add custom metadata to your S3 bucket. Tags are of  key and value format, here is what a tag looks like,
+
+Create a tag
+
+```
+"""
+- Hack   : Tag an s3 bucket
+- AWS CLI: aws s3api put-bucket-tagging --bucket us-west-2.nag --tagging 'TagSet=[{Key=name,Value=nag}]'
+"""
+
+import boto3
+
+if __name__ == "__main__":
+   client = boto3.client('s3',region_name="us-west-2")
+   bucketname = "us-west-2.nag"
+   print client.put_bucket_tagging(Bucket=bucketname,Tagging={
+        'TagSet': [
+            {
+                'Key': 'Name',
+                'Value': 'Nag'
+            },
+        ]
+    })
+
+```
 
 # S3 Objects
 
