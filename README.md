@@ -226,7 +226,7 @@ if __name__ == "__main__":
    print client.delete_bucket_tagging(Bucket=bucketname)
 ```
 
-# 
+##### 
 
 # S3 Objects
 
@@ -237,10 +237,9 @@ You can think of objects as a file. An object has,
 * Data
 * MetaData
 
-#### Create an object
+##### Create an object
 
 ```py
-
 """
 - Hack   : Create an Object in S3
 - AWS CLI: aws s3api put-object --bucket us-west-2.nag --key hello.txt --body hello.txt
@@ -253,6 +252,47 @@ if __name__ == "__main__":
     bucketname = "us-west-2.nag"
     print client.put_object(Bucket=bucketname, Key="hello.txt", Body="Hello World")
 ```
+
+##### List an object
+
+```py
+
+"""
+- Hack   : Create an Object in S3
+- AWS CLI: aws s3 ls s3://us-west-2.nag
+"""
+
+import json
+import boto3
+
+if __name__ == "__main__":
+    client = boto3.client('s3', region_name="us-west-2")
+    bucketname = "us-west-2.nag"
+    for obj in client.list_objects(Bucket=bucketname)["Contents"]:
+        print obj["Key"]
+
+```
+
+
+
+##### Delete an Object
+
+```py
+
+"""
+- Hack   : Delete an Object in S3
+- AWS CLI: aws s3api delete-object --bucket us-west-2.nag --key hello.txt
+"""
+
+import boto3
+
+if __name__ == "__main__":
+    client = boto3.client('s3')
+    bucketname = "us-west-2.nag"
+    print client.delete_object(Bucket=bucketname, Key="hello.txt")
+```
+
+# 
 
 # ACL's & Policies
 
