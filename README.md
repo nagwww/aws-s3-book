@@ -12,6 +12,7 @@
 * [S3 buckets](/chapter1.md)
   * [Create](#create-an-s3-bucket) / [Delete](#bucket) / [List](#find-out-all-the-s3-buckets-in-your-aws-account) / [Tag](#tag-a-bucket) 
 * [S3 objects](/s3-objects.md)
+  * Create / Delete / List / Tag
 * [ACL and Policies](#acls--policies)
 * [S3 Security](/s3-and-security.md)
 
@@ -256,7 +257,6 @@ if __name__ == "__main__":
 ##### List an object
 
 ```py
-
 """
 - Hack   : Create an Object in S3
 - AWS CLI: aws s3 ls s3://us-west-2.nag
@@ -270,15 +270,11 @@ if __name__ == "__main__":
     bucketname = "us-west-2.nag"
     for obj in client.list_objects(Bucket=bucketname)["Contents"]:
         print obj["Key"]
-
 ```
-
-
 
 ##### Delete an Object
 
 ```py
-
 """
 - Hack   : Delete an Object in S3
 - AWS CLI: aws s3api delete-object --bucket us-west-2.nag --key hello.txt
