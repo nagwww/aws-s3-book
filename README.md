@@ -173,7 +173,7 @@ Tagging helps you to add custom metadata to your S3 bucket. Tags are of  key and
 
 ##### Create a tag
 
-```
+```py
 """
 - Hack   : Tag an s3 bucket
 - AWS CLI: aws s3api put-bucket-tagging --bucket us-west-2.nag --tagging 'TagSet=[{Key=name,Value=nag}]'
@@ -196,7 +196,19 @@ if __name__ == "__main__":
 
 ##### Retrive a tag
 
+```py
+"""
+- Hack   : Get all the tags for an S3 bucket
+- AWC CLI: aws s3api get-bucket-tagging --bucket us-west-2.nag
+"""
 
+import boto3
+
+if __name__ == "__main__":
+   client = boto3.client('s3')
+   bucketname = "us-west-2.nag"
+   print client.get_bucket_tagging(Bucket=bucketname)["TagSet"]
+```
 
 ##### Deleted a tag
 
