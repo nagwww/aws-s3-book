@@ -290,7 +290,6 @@ if __name__ == "__main__":
     bucketname = "us-west-2.nag"
     for obj in client.list_objects(Bucket=bucketname, Prefix="hello/")["Contents"]:
         print obj["Key"]
-
 ```
 
 ##### Delete an Object
@@ -307,6 +306,39 @@ if __name__ == "__main__":
     client = boto3.client('s3')
     bucketname = "us-west-2.nag"
     print client.delete_object(Bucket=bucketname, Key="hello.txt")
+```
+
+##### Tag an S3 object
+
+```py
+"""
+- Hack   : Tag an S3 object
+- AWS CLI: aws s3api put-object-tagging  --bucket us-west-2.nag --key hello.txt --tagging 'TagSet=[{Key=name,Value=nag}]'
+"""
+
+import boto3
+
+if __name__ == "__main__":
+    client = boto3.client('s3')
+    bucketname = "us-west-2.nag"
+    print client.put_object_tagging(Bucket=bucketname, Key="hello.txt",
+                                    Tagging={"TagSet": [{"Key": "Name", "Value": "Nag"}, ]})
+```
+
+##### Get all the tags for an S3 object
+
+```py
+"""
+- Hack   : Get all the tags for an S3 object
+- AWS CLI: aws s3api get-object-tagging --bucket us-west-2.nag --key hello.txt
+"""
+
+import boto3
+
+if __name__ == "__main__":
+    client = boto3.client('s3')
+    bucketname = "us-west-2.nag"
+    print client.get_object_tagging(Bucket=bucketname, Key="hello.txt")["TagSet"]
 ```
 
 # 
