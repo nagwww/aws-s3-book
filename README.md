@@ -41,7 +41,7 @@ Option 2 :
 
 Contributors
 
-# What is S3 {#s3}
+# What is S3
 
 ---
 
@@ -62,7 +62,7 @@ S3 is used to store your data on internet. In layman terms
 
 * Do you have a website, then you can store your static pages like Images, Java Script, HTML,CSS.
 
-# S3 buckets {#buckets}
+# S3 buckets
 
 ---
 
