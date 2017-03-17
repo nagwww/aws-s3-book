@@ -370,9 +370,52 @@ ACL's and policies are the gate keepers for your data in S3.
 This is how an ACL looks like if you are curious.
 
 * Every Bucket and object has an ACL
-* Every
+* Every bucket 
 
 ![](/assets/s3_acl.jpg)
+
+##### Get an ACL for bucket
+
+```py
+"""
+- Hack   : Create an Bucket in S3
+- AWS CLI: aws s3api get-bucket-acl --bucket us-west-2.nag 
+"""
+
+import json
+import boto3
+
+if __name__ == "__main__":
+    client = boto3.client('s3')
+    bucketname = "us-west-2.nag"
+    print json.dumps(client.get_bucket_acl(Bucket=bucketname)["Grants"], indent=1)
+```
+
+##### Set an ACL for bucket 
+
+###### Granting READ access to "AutneticatedUsers"
+
+```py
+"""
+- Hack   : Grant read access to Authenticated users ( You sure don't want to do this anytime )
+- AWS CLI:aws s3api put-bucket-acl --bucket us-west-2.nag --grant-read uri=http://acs.amazonaws.com/groups/global/AuthenticatedUsers
+"""
+
+import json
+import boto3
+
+if __name__ == "__main__":
+    client = boto3.client('s3')
+    bucketname = "us-west-2.nag"
+    print client.put_bucket_acl(Bucket=bucketname, ACL="authenticated-read")
+
+```
+
+Granting READ access to an "AWS Account"
+
+
+
+# 
 
 # Archiving & Backup
 
