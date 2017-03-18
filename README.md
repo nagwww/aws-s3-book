@@ -13,9 +13,9 @@
   * [Create](#create-an-s3-bucket) / [Delete](#bucket) / [List](#find-out-all-the-s3-buckets-in-your-aws-account) / [Tag](#tag-a-bucket) 
 * [S3 objects](/s3-objects.md)
   * [Create](#create-an-object) /Get / [Delete](#delete-an-object) / [List](#list-an-object) / [Tag](#tag-an-s3-object)
-* [ACL and Policies](#acls--policies)
 
-  * [Create](#create-an-acl-for-bucket) / [Get](#get-an-acl-for-bucket) / Delete
+* [ACL and Policie](#acls--policies)
+  *  [Create](#create-an-acl-for-bucket) / [Get](#get-an-acl-for-bucket) / [Delete](#delete-acl)
 
 * [S3 Security](/s3-and-security.md)
 
