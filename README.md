@@ -14,7 +14,8 @@
 * [S3 objects](/s3-objects.md)
   * [Create](#create-an-object) /Get / [Delete](#delete-an-object) / [List](#list-an-object) / [Tag](#tag-an-s3-object)
 * [ACL and Policies](#acls--policies)
-  * [Create](#create-an-acl-for-bucket) / Get / Delete
+
+  * [Create](#create-an-acl-for-bucket) / [Get](#get-an-acl-for-bucket) / Delete
 
 * [S3 Security](/s3-and-security.md)
 
