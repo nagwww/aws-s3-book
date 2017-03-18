@@ -14,7 +14,7 @@
 * [S3 objects](/s3-objects.md)
   * [Create](#create-an-object) /Get / [Delete](#delete-an-object) / [List](#list-an-object) / [Tag](#tag-an-s3-object)
 * [ACL and Policies](#acls--policies)
-  * 
+  \* 
 * [S3 Security](/s3-and-security.md)
 
 You can checkout all the examples in this book at [https://github.com/nagwww/101-AWS-S3-Hacks](https://github.com/nagwww/101-AWS-S3-Hacks)
@@ -257,8 +257,6 @@ if __name__ == "__main__":
 
 ##### Get an Object
 
-
-
 ##### List an object
 
 ```py
@@ -418,7 +416,6 @@ if __name__ == "__main__":
 ###### Granting READ access a bucket from an "AWS Account"
 
 ```py
-
 """
 - Hack   : Grant read access to Authenticated users ( You sure don't want to do this anytime )
 - AWS CLI: aws s3api put-bucket-acl --bucket us-west-2.nag --grant-read emailaddress=test@gmail.com
@@ -454,11 +451,14 @@ if __name__ == "__main__":
 
 ###### Granting READ access a bucket from an "CanonicalUser"
 
-```
+canonical user ID is a long string, such as`96a1e698fbacedfd6e09d98eacf8f8d5218e7cd47ef2besssssss`.
+
+You can use canonical user IDs in an Amazon S3 bucket policy for cross-account access.
+
+```py
 """
 - Hack   : Grant read access to a bucket by CanonicalUser
 - AWS CLI: aws s3api put-bucket-acl --bucket us-west-2.nag --grant-read id=xxxxxxxx
-
 """
 
 import json
@@ -492,13 +492,15 @@ if __name__ == "__main__":
 
 ##### Delete ACL
 
-There is delete ACL, however you can update the ACL. One of the recommendation is to get the current ACL and update it accordingly. Using the above methods.
+There is NO delete ACL, however you can update the ACL. One of the recommendation is to get the current ACL and update it accordingly. Using the above methods.
 
- 
+#### Policies
 
-#### Policies 
+Policies give you fine grained access control, with ACL you can only grant like READ, WRITE,FULL CONTROL, with policies you can go granular like "list" "putACL", "getACL" etc. here are a few examples,
 
-Policies give you fine grained access control, 
+##### Create a Bucket Policy
+
+
 
 # Archiving & Backup
 
