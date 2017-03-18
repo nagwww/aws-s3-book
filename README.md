@@ -14,7 +14,8 @@
 * [S3 objects](/s3-objects.md)
   * [Create](#create-an-object) /Get / [Delete](#delete-an-object) / [List](#list-an-object) / [Tag](#tag-an-s3-object)
 * [ACL and Policies](#acls--policies)
-  \* 
+  * [Create](#create-an-acl-for-bucket) / Get / Delete
+
 * [S3 Security](/s3-and-security.md)
 
 You can checkout all the examples in this book at [https://github.com/nagwww/101-AWS-S3-Hacks](https://github.com/nagwww/101-AWS-S3-Hacks)
@@ -394,7 +395,7 @@ if __name__ == "__main__":
     print json.dumps(client.get_bucket_acl(Bucket=bucketname)["Grants"], indent=1)
 ```
 
-##### Set an ACL for bucket
+##### Create an ACL for bucket
 
 ###### Granting READ access to "AutneticatedUsers"
 
@@ -499,8 +500,6 @@ There is NO delete ACL, however you can update the ACL. One of the recommendatio
 Policies give you fine grained access control, with ACL you can only grant like READ, WRITE,FULL CONTROL, with policies you can go granular like "list" "putACL", "getACL" etc. here are a few examples,
 
 ##### Create a Bucket Policy
-
-
 
 # Archiving & Backup
 
