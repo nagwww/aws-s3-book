@@ -12,8 +12,9 @@
 * [S3 buckets](/chapter1.md)
   * [Create](#create-an-s3-bucket) / [Delete](#bucket) / [List](#find-out-all-the-s3-buckets-in-your-aws-account) / [Tag](#tag-a-bucket) 
 * [S3 objects](/s3-objects.md)
-  * [Create](#create-an-object) / [Delete](#delete-an-object) / [List](#list-an-object) / [Tag](#tag-an-s3-object)
+  * [Create](#create-an-object) /Get / [Delete](#delete-an-object) / [List](#list-an-object) / [Tag](#tag-an-s3-object)
 * [ACL and Policies](#acls--policies)
+  * 
 * [S3 Security](/s3-and-security.md)
 
 You can checkout all the examples in this book at [https://github.com/nagwww/101-AWS-S3-Hacks](https://github.com/nagwww/101-AWS-S3-Hacks)
@@ -254,6 +255,10 @@ if __name__ == "__main__":
     print client.put_object(Bucket=bucketname, Key="hello.txt", Body="Hello World")
 ```
 
+##### Get an Object
+
+
+
 ##### List an object
 
 ```py
@@ -391,7 +396,7 @@ if __name__ == "__main__":
     print json.dumps(client.get_bucket_acl(Bucket=bucketname)["Grants"], indent=1)
 ```
 
-##### Set an ACL for bucket 
+##### Set an ACL for bucket
 
 ###### Granting READ access to "AutneticatedUsers"
 
@@ -408,14 +413,92 @@ if __name__ == "__main__":
     client = boto3.client('s3')
     bucketname = "us-west-2.nag"
     print client.put_bucket_acl(Bucket=bucketname, ACL="authenticated-read")
-
 ```
 
-Granting READ access to an "AWS Account"
+###### Granting READ access a bucket from an "AWS Account"
 
+```py
 
+"""
+- Hack   : Grant read access to Authenticated users ( You sure don't want to do this anytime )
+- AWS CLI: aws s3api put-bucket-acl --bucket us-west-2.nag --grant-read emailaddress=test@gmail.com
 
-# 
+"""
+
+import json
+import boto3
+
+acp = {
+    "Grants": [
+        {
+            "Grantee": {
+                "Type": "AmazonCustomerByEmail",
+                "EmailAddress": "test@gmail.com"
+            },
+            "Permission" : "READ"
+        }
+
+    ],
+    "Owner" : {
+        "DisplayName": "test",
+        "ID": "ba54237358a1exxxxxxxxxxxxx401cc"
+
+      }
+}
+
+if __name__ == "__main__":
+    client = boto3.client('s3')
+    bucketname = "us-west-2.nag"
+    print client.put_bucket_acl(Bucket=bucketname, AccessControlPolicy=acp)
+```
+
+###### Granting READ access a bucket from an "CanonicalUser"
+
+```
+"""
+- Hack   : Grant read access to a bucket by CanonicalUser
+- AWS CLI: aws s3api put-bucket-acl --bucket us-west-2.nag --grant-read id=xxxxxxxx
+
+"""
+
+import json
+import boto3
+
+acp = {
+    "Grants": [
+        {
+            "Grantee": {
+                "Type": "CanonicalUser",
+                "ID": "xxxx"
+            },
+            "Permission" : "READ"
+        }
+
+    ],
+    "Owner" : {
+        "DisplayName": "nagm",
+        "ID": "xxxx"
+
+      }
+}
+
+if __name__ == "__main__":
+    client = boto3.client('s3')
+    bucketname = "us-west-2.nag"
+    print client.put_bucket_acl(Bucket=bucketname, AccessControlPolicy=acp)
+```
+
+# \[ TBD \] : Can add more examples
+
+##### Delete ACL
+
+There is delete ACL, however you can update the ACL. One of the recommendation is to get the current ACL and update it accordingly. Using the above methods.
+
+ 
+
+#### Policies 
+
+Policies give you fine grained access control, 
 
 # Archiving & Backup
 
