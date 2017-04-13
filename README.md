@@ -14,7 +14,8 @@
 * [S3 objects](/s3-objects.md)
   * [Create](#create-an-object) /Get / [Delete](#delete-an-object) / [List](#list-an-object) / [Tag](#tag-an-s3-object)
 * [ACL and Policy](#acls--policies)
-  * [Create](#create-an-acl-for-bucket) / [Get](#get-an-acl-for-bucket) / [Delete](#delete-acl)
+  * [Create](#create-an-acl-for-bucket) / [Get](#get-an-acl-for-bucket) / [Delete](#delete-acl) \[ ACL \]
+  * [Get](#get-s3-bucket-policy) / Create / Delete \[ Policy \]
 * [S3 Security](/s3-and-security.md)
 
 You can checkout all the examples in this book at [https://github.com/nagwww/101-AWS-S3-Hacks](https://github.com/nagwww/101-AWS-S3-Hacks)
@@ -497,6 +498,26 @@ There is NO delete ACL, however you can update the ACL. One of the recommendatio
 #### Policies
 
 Policies give you fine grained access control, with ACL you can only grant like READ, WRITE,FULL CONTROL, with policies you can go granular like "list" "putACL", "getACL" etc. here are a few examples,
+
+##### Get S3 bucket policy
+
+```py
+#!/usr/bin/python
+
+"""
+- Hack   : Get  policy for a bucket
+- AWS CLI: aws s3api get-bucket-policy --bucket us-west-2.nag
+"""
+
+import json
+import boto3
+
+if __name__ == "__main__":
+    client = boto3.client('s3')
+    bucketname = "us-west-2.nag"
+    print client.get_bucket_policy(Bucket=bucketname)["Policy"]
+
+```
 
 ##### Create a Bucket Policy
 
