@@ -12,10 +12,10 @@
 * [S3 buckets](/chapter1.md)
   * [Create](#create-an-s3-bucket) / [Delete](#bucket) / [List](#find-out-all-the-s3-buckets-in-your-aws-account) / [Tag](#tag-a-bucket)
 * [S3 objects](/s3-objects.md)
-  * [Create](#create-an-object) /Get / [Delete](#delete-an-object) / [List](#list-an-object) / [Tag](#tag-an-s3-object)
+  * [Create](#create-an-object) / Get / [Delete](#delete-an-object) / [List](#list-an-object) / [Tag](#tag-an-s3-object)
 * [ACL and Policy](#acls--policies)
   * [Create](#create-an-acl-for-bucket) / [Get](#get-an-acl-for-bucket) / [Delete](#delete-acl) \[ ACL \]
-  * [Get](#get-s3-bucket-policy) / Create / Delete \[ Policy \]
+  * [Create](#create-a-s3-bucket-policy) / [Get](#get-s3-bucket-policy)  / Delete \[ Policy \]
 * [S3 Security](/s3-and-security.md)
 
 You can checkout all the examples in this book at [https://github.com/nagwww/101-AWS-S3-Hacks](https://github.com/nagwww/101-AWS-S3-Hacks)
@@ -499,6 +499,27 @@ There is NO delete ACL, however you can update the ACL. One of the recommendatio
 
 Policies give you fine grained access control, with ACL you can only grant like READ, WRITE,FULL CONTROL, with policies you can go granular like "list" "putACL", "getACL" etc. here are a few examples,
 
+##### Create a S3 bucket policy
+
+```py
+#!/usr/bin/python
+
+"""
+- Hack   : Create bucket policy
+- AWS CLI: aws s3api put-bucket-policy --bucket us-west-2.nag --policy '{"Version":"2012-10-17","Statement":[{"Sid":"AddPerm","Effect":"Allow","Principal":"*","Action":"s3:GetObject","Resource":"arn:aws:s3:::us-west-2.nag/*"}]}'
+"""
+
+import json
+import boto3
+p = {"Version":"2012-10-17","Statement":[{"Sid":"AddPerm","Effect":"Allow","Principal":"*","Action":"s3:GetObject","Resource":"arn:aws:s3:::us-west-2.nag/*"}]}
+
+if __name__ == "__main__":
+    client = boto3.client('s3')
+    bucketname = "us-west-2.nag"
+    print client.put_bucket_policy(Bucket=bucketname, Policy=json.dumps(p))
+
+```
+
 ##### Get S3 bucket policy
 
 ```py
@@ -516,7 +537,6 @@ if __name__ == "__main__":
     client = boto3.client('s3')
     bucketname = "us-west-2.nag"
     print client.get_bucket_policy(Bucket=bucketname)["Policy"]
-
 ```
 
 ##### Create a Bucket Policy
