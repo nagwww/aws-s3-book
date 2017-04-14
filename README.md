@@ -564,15 +564,15 @@ Versioning
 
 If versioning is enabled S3 automatically adds new versions and preserves deleted objects with delete markers,
 
-Enable Versioning 
+Enable Versioning
 
-Delete Versioning 
+Delete Versioning
 
 #### LifeCycle
 
-What 
+What
 
-Create LifeCycle 
+Create LifeCycle
 
 Modify LifeCycle
 
@@ -586,13 +586,17 @@ Google Cloud Platform
 
 ---
 
-
-
 # S3 Replication
 
 ---
 
-S3 replication was a new feature introduced in 2016. One of the prerequisites of replication is versioning. 
+S3 replication was a new feature introduced in 2016. One of the prerequisites of replication is versioning.
+
+# S3 VPC Endopints
+
+---
+
+
 
 # S3 and Security
 
