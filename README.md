@@ -544,7 +544,7 @@ if __name__ == "__main__":
 
 ##### Create a Bucket Policy
 
-# Archiving & Backup
+# Archiving, Backup & Versioning
 
 ---
 
@@ -556,20 +556,43 @@ Backup
 
 * Backup is for recovery from hardware or data corruption. This is the the data that is needed for near term business continuity 
 
-Here are few way you can accomplish this,
+Versioning
 
-|  |
-| :--- |
-| LifeCycle |
-| Glacier |
-| Google Cloud Platform |
-| Microsoft - Azure |
+* Versioning helps you with accidental deletion of your files/objects. Versioning is an optional feature for keeping multiple variants of an object in the same bucket. 
+
+#### Versioning
+
+If versioning is enabled S3 automatically adds new versions and preserves deleted objects with delete markers,
+
+Enable Versioning 
+
+Delete Versioning 
 
 #### LifeCycle
+
+What 
+
+Create LifeCycle 
+
+Modify LifeCycle
+
+Delete LifeCycle
 
 #### Glacier
 
 Google Cloud Platform
+
+# S3 Event notifications
+
+---
+
+
+
+# S3 Replication
+
+---
+
+S3 replication was a new feature introduced in 2016. One of the prerequisites of replication is versioning. 
 
 # S3 and Security
 
