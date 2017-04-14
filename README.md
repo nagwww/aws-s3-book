@@ -552,7 +552,9 @@ Backup
 
 * Backup is for recovery from hardware or data corruption. This is the the data that is needed for near term business continuity 
 
-Here are few way you can use to
+Here are few way you can accomplish this,
+
+
 
 |  |
 | :--- |
@@ -562,8 +564,6 @@ Here are few way you can use to
 | Microsoft - Azure |
 
 #### LifeCycle
-
-
 
 #### Glacier
 
