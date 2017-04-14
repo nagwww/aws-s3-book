@@ -22,6 +22,8 @@
   * GCS - Google cloud storage
   * Versioning
     * [Enable](#enable-versioning) / [Status](#get-versioning) / [Suspend](#delete-versioning) / [List](#list-all-the-object-versions)
+* [S3 Event Notifications](#s3-event-notifications)
+  * 
 * [S3 Security](/s3-and-security.md)
 
 You can checkout all the examples in this book at [https://github.com/nagwww/101-AWS-S3-Hacks](https://github.com/nagwww/101-AWS-S3-Hacks)
@@ -667,7 +669,6 @@ if __name__ == "__main__":
     all_versions = client.list_object_versions(Bucket=bucketname, Prefix="hello.txt")["Versions"]
     for obj in all_versions:
         print "Last modified, isLatest, size => ", obj["LastModified"], obj["IsLatest"], obj["Size"]
-
 ```
 
 #### LifeCycle
