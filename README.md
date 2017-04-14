@@ -517,7 +517,6 @@ if __name__ == "__main__":
     client = boto3.client('s3')
     bucketname = "us-west-2.nag"
     print client.put_bucket_policy(Bucket=bucketname, Policy=json.dumps(p))
-
 ```
 
 ##### Get S3 bucket policy
@@ -551,7 +550,7 @@ Archiving
 
 Backup
 
-* Backup is for recovery from hardware of data corruption. This is the the data that is needed for near term business continuity 
+* Backup is for recovery from hardware or data corruption. This is the the data that is needed for near term business continuity 
 
 Here are few way you can use to
 
@@ -563,6 +562,8 @@ Here are few way you can use to
 | Microsoft - Azure |
 
 #### LifeCycle
+
+
 
 #### Glacier
 
