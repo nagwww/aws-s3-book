@@ -21,7 +21,7 @@
   * Glacier 
   * GCS - Google cloud storage
   * Versioning
-    * [Enable](#enable-versioning) / [Status](#get-versioning) / [Suspend](#delete-versioning)
+    * [Enable](#enable-versioning) / [Status](#get-versioning) / [Suspend](#delete-versioning) / [List](#list-all-the-object-versions)
 * [S3 Security](/s3-and-security.md)
 
 You can checkout all the examples in this book at [https://github.com/nagwww/101-AWS-S3-Hacks](https://github.com/nagwww/101-AWS-S3-Hacks)
@@ -631,6 +631,43 @@ if __name__ == "__main__":
     client = boto3.client('s3')
     bucketname = "us-west-2.nag"
     print client.put_bucket_versioning(Bucket=bucketname, VersioningConfiguration=v)
+```
+
+##### List all the object versions
+
+```py
+"""
+- Hack   : List all the versioned objects
+- AWS CLI: aws s3api list-object-versions --bucket us-west-2.nag
+"""
+
+import json
+import boto3
+
+if __name__ == "__main__":
+    client = boto3.client('s3')
+    bucketname = "us-west-2.nag"
+    print client.list_object_versions(Bucket=bucketname)
+```
+
+##### List all the versions of an object
+
+```py
+"""
+- Hack   : List all the versioned objects
+- AWS CLI: aws s3api list-object-versions --bucket us-west-2.nag --prefix hello.txt
+"""
+
+import json
+import boto3
+
+if __name__ == "__main__":
+    client = boto3.client('s3')
+    bucketname = "us-west-2.nag"
+    all_versions = client.list_object_versions(Bucket=bucketname, Prefix="hello.txt")["Versions"]
+    for obj in all_versions:
+        print "Last modified, isLatest, size => ", obj["LastModified"], obj["IsLatest"], obj["Size"]
+
 ```
 
 #### LifeCycle
