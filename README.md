@@ -16,10 +16,12 @@
 * [ACL and Policy](#acls--policies)
   * [Create](#create-an-acl-for-bucket) / [Get](#get-an-acl-for-bucket) / [Delete](#delete-acl) \[ ACL \]
   * [Create](#create-a-s3-bucket-policy) / [Get](#get-s3-bucket-policy)  / Delete \[ Policy \]
-* Archiving and backup
+* [Archiving,  backup & versioning](#archiving-backup--versioning)
   * Lifecycle \[ Create / Get / Delete \]
   * Glacier 
   * GCS - Google cloud storage
+  * Versioning
+    * [Enable](#enable-versioning) / Delete
 * [S3 Security](/s3-and-security.md)
 
 You can checkout all the examples in this book at [https://github.com/nagwww/101-AWS-S3-Hacks](https://github.com/nagwww/101-AWS-S3-Hacks)
@@ -564,9 +566,33 @@ Versioning
 
 If versioning is enabled S3 automatically adds new versions and preserves deleted objects with delete markers,
 
-Enable Versioning
+##### Enable Versioning
 
-Delete Versioning
+```py
+
+"""
+- Author : Nag m
+- Hack   : Enable versioning for an S3 bucket
+- AWS CLI: aws s3api put-bucket-versioning --bucket us-west-2.nag --versioning-configuration '{"Status":"Enabled"}'
+"""
+
+import json
+import boto3
+
+v={
+        'Status': 'Enabled'
+    }
+
+if __name__ == "__main__":
+    client = boto3.client('s3')
+    bucketname = "us-west-2.nag"
+    print client.put_bucket_versioning(Bucket=bucketname, VersioningConfiguration=v)
+
+```
+
+##### Delete Versioning
+
+hmmm... you cannot delete versioning, however you can suspend versioning.
 
 #### LifeCycle
 
@@ -595,8 +621,6 @@ S3 replication was a new feature introduced in 2016. One of the prerequisites of
 # S3 VPC Endopints
 
 ---
-
-
 
 # S3 and Security
 
