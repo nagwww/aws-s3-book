@@ -21,7 +21,7 @@
   * Glacier 
   * GCS - Google cloud storage
   * Versioning
-    * [Enable](#enable-versioning) / [Status](#get-versioning) / Suspend
+    * [Enable](#enable-versioning) / [Status](#get-versioning) / [Suspend](#delete-versioning)
 * [S3 Security](/s3-and-security.md)
 
 You can checkout all the examples in this book at [https://github.com/nagwww/101-AWS-S3-Hacks](https://github.com/nagwww/101-AWS-S3-Hacks)
@@ -631,10 +631,7 @@ if __name__ == "__main__":
     client = boto3.client('s3')
     bucketname = "us-west-2.nag"
     print client.put_bucket_versioning(Bucket=bucketname, VersioningConfiguration=v)
-
 ```
-
-
 
 #### LifeCycle
 
