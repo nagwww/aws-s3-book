@@ -21,7 +21,7 @@
   * Glacier 
   * GCS - Google cloud storage
   * Versioning
-    * [Enable](#enable-versioning) / Delete
+    * [Enable](#enable-versioning) / [Status](#get-versioning) / Suspend
 * [S3 Security](/s3-and-security.md)
 
 You can checkout all the examples in this book at [https://github.com/nagwww/101-AWS-S3-Hacks](https://github.com/nagwww/101-AWS-S3-Hacks)
@@ -569,9 +569,7 @@ If versioning is enabled S3 automatically adds new versions and preserves delete
 ##### Enable Versioning
 
 ```py
-
 """
-- Author : Nag m
 - Hack   : Enable versioning for an S3 bucket
 - AWS CLI: aws s3api put-bucket-versioning --bucket us-west-2.nag --versioning-configuration '{"Status":"Enabled"}'
 """
@@ -587,12 +585,56 @@ if __name__ == "__main__":
     client = boto3.client('s3')
     bucketname = "us-west-2.nag"
     print client.put_bucket_versioning(Bucket=bucketname, VersioningConfiguration=v)
+```
 
+##### Get Versioning
+
+Check the status of versioning for an S3 bucket
+
+```py
+"""
+- Hack   : Get versioning for an S3 bucket
+- AWS CLI: aws s3api get-bucket-versioning --bucket us-west-2.nag 
+"""
+
+import json
+import boto3
+
+v = {
+    'Status': 'Enabled'
+}
+
+if __name__ == "__main__":
+    client = boto3.client('s3')
+    bucketname = "us-west-2.nag"
+    print client.get_bucket_versioning(Bucket=bucketname)
 ```
 
 ##### Delete Versioning
 
 hmmm... you cannot delete versioning, however you can suspend versioning.
+
+```py
+"""
+- Hack   : Suspend versioning for an S3 bucket
+- AWS CLI: aws s3api put-bucket-versioning --bucket us-west-2.nag --versioning-configuration '{"Status":"Suspended"}'
+"""
+
+import json
+import boto3
+
+v={
+        'Status': 'Suspended'
+    }
+
+if __name__ == "__main__":
+    client = boto3.client('s3')
+    bucketname = "us-west-2.nag"
+    print client.put_bucket_versioning(Bucket=bucketname, VersioningConfiguration=v)
+
+```
+
+
 
 #### LifeCycle
 
