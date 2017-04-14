@@ -16,6 +16,10 @@
 * [ACL and Policy](#acls--policies)
   * [Create](#create-an-acl-for-bucket) / [Get](#get-an-acl-for-bucket) / [Delete](#delete-acl) \[ ACL \]
   * [Create](#create-a-s3-bucket-policy) / [Get](#get-s3-bucket-policy)  / Delete \[ Policy \]
+* Archiving and backup
+  * Lifecycle \[ Create / Get / Delete \]
+  * Glacier 
+  * GCS - Google cloud storage
 * [S3 Security](/s3-and-security.md)
 
 You can checkout all the examples in this book at [https://github.com/nagwww/101-AWS-S3-Hacks](https://github.com/nagwww/101-AWS-S3-Hacks)
@@ -553,8 +557,6 @@ Backup
 * Backup is for recovery from hardware or data corruption. This is the the data that is needed for near term business continuity 
 
 Here are few way you can accomplish this,
-
-
 
 |  |
 | :--- |
