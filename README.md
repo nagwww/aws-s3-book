@@ -23,7 +23,7 @@
   * Versioning
     * [Enable](#enable-versioning) / [Status](#get-versioning) / [Suspend](#delete-versioning) / [List](#list-all-the-object-versions)
 * [S3 Event Notifications](#s3-event-notifications)
-  * 
+  \* 
 * [S3 Security](/s3-and-security.md)
 
 You can checkout all the examples in this book at [https://github.com/nagwww/101-AWS-S3-Hacks](https://github.com/nagwww/101-AWS-S3-Hacks)
@@ -422,7 +422,7 @@ if __name__ == "__main__":
     print client.put_bucket_acl(Bucket=bucketname, ACL="authenticated-read")
 ```
 
-###### Granting READ access a bucket from an "AWS Account"
+###### Granting READ access to a bucket from a different "AWS Account"
 
 ```py
 """
@@ -688,6 +688,10 @@ Google Cloud Platform
 # S3 Event notifications
 
 ---
+
+Event notifications are great if you want to further process your data or objects that land in an S3 bucket.
+
+
 
 # S3 Replication
 
