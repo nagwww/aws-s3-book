@@ -673,9 +673,28 @@ if __name__ == "__main__":
 
 #### LifeCycle
 
-What
+What 
 
 Create LifeCycle
+
+##### Get Life Cycle
+
+```py
+#!/usr/bin/python
+
+"""
+- Hack   : Create a bucket lifecycle policy
+- AWS CLI: aws s3api get-bucket-lifecycle --bucket us-west-2.nag 
+"""
+
+import json
+import boto3
+
+if __name__ == "__main__":
+    client = boto3.client('s3')
+    bucketname = "us-west-2.nag"
+    print client.get_bucket_lifecycle_configuration(Bucket=bucketname)
+```
 
 Modify LifeCycle
 
@@ -690,8 +709,6 @@ Google Cloud Platform
 ---
 
 Event notifications are great if you want to further process your data or objects that land in an S3 bucket.
-
-
 
 # S3 Replication
 
