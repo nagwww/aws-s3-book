@@ -17,7 +17,7 @@
   * [Create](#create-an-acl-for-bucket) / [Get](#get-an-acl-for-bucket) / [Delete](#delete-acl) \[ ACL \]
   * [Create](#create-a-s3-bucket-policy) / [Get](#get-s3-bucket-policy)  / Delete \[ Policy \]
 * [Archiving,  backup & versioning](#archiving-backup--versioning)
-  * Lifecycle \[ Create / Get / Delete \]
+  * [Lifecycle](#lifecycle) \[ [Create](#create-lifecycle) / [Get](#get-life-cycle) / [Delete](#delete-lifecycle) \]
   * Glacier 
   * GCS - Google cloud storage
   * Versioning
@@ -705,7 +705,6 @@ if __name__ == "__main__":
     client = boto3.client('s3')
     bucketname = "us-west-2.nag"
     print client.put_bucket_lifecycle_configuration(Bucket=bucketname, LifecycleConfiguration=p)
-
 ```
 
 ##### Get Life Cycle
@@ -731,7 +730,7 @@ Modify LifeCycle
 
 There is no option to modify LifeCycle from the API, you will have to create a new one and the existing one will be replaced.
 
-Delete LifeCycle
+##### Delete LifeCycle
 
 ```py
 #!/usr/bin/python
