@@ -20,7 +20,7 @@
   * [Lifecycle](#lifecycle) \[ [Create](#create-lifecycle) / [Get](#get-life-cycle) / [Delete](#delete-lifecycle) \]
   * Glacier 
   * GCS - Google cloud storage
-  * Versioning
+  * [Versioning](#versioning)
     * [Enable](#enable-versioning) / [Status](#get-versioning) / [Suspend](#delete-versioning) / [List](#list-all-the-object-versions)
 * [S3 Event Notifications](#s3-event-notifications)
   \* 
