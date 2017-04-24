@@ -27,6 +27,7 @@
 * [S3 Replication](#s3-replication)
   * [Create](#create-replication) / [Get](#get-replication-configuration) / [Delete](#delete-bucket-replication)
 * [S3 Security](/s3-and-security.md)
+* [Tools](#tools)
 
 You can checkout all the examples in this book at [https://github.com/nagwww/101-AWS-S3-Hacks](https://github.com/nagwww/101-AWS-S3-Hacks)
 
@@ -36,7 +37,9 @@ You can checkout all the examples in this book at [https://github.com/nagwww/101
 
 ---
 
-[Boto documentation](http://boto3.readthedocs.io/en/latest/reference/services/s3.html) for S3 is really great, there is never a day that pass by with out me referencing it. Every time I need help I refer to the document, I thought why not just create an example for each and every method and so was this S3 cook book born.
+[Boto documentation](http://boto3.readthedocs.io/en/latest/reference/services/s3.html) for S3 is really great, there is never a day that pass by with out referring. Every time I need help I refer to the document, which inspired me to create an example for each and every method and so was this S3 cook book born.
+
+
 
 Digital information is driving exponential growth in data. Data in the form of genes, biometrics, logs, events, photos, videos, comments, etc play a key role in the current digital generation.
 
@@ -907,11 +910,17 @@ There are primarily two layers of security you can use to secure you S3 data
 * User level security
   * AWS IAM Policy
 
-Things to note :
+The AWS account which creates the object is the owner of the object. 
 
-AWS account which create the object is the owner of the object. Here are few example,
+# Tools
 
-Tools I use to monitor my S3.
+---
+
+Here are a few tools which is used to Monitor AWS S3
 
 Security Monkey
+
+
+
+
 
