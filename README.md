@@ -39,8 +39,6 @@ You can checkout all the examples in this book at [https://github.com/nagwww/101
 
 [Boto documentation](http://boto3.readthedocs.io/en/latest/reference/services/s3.html) for S3 is really great, there is never a day that pass by with out referring. Every time I need help I refer to the document, which inspired me to create an example for each and every method and so was this S3 cook book born.
 
-
-
 Digital information is driving exponential growth in data. Data in the form of genes, biometrics, logs, events, photos, videos, comments, etc play a key role in the current digital generation.
 
 If you are student, teacher, doctor, engineer no matter the profession it is likely that you are playing with data in every walk of life.
@@ -891,6 +889,26 @@ if __name__ == "__main__":
     print client.delete_bucket_replication(Bucket=bucketname)
 ```
 
+# S3 Multipart upload
+
+---
+
+# S3 Anaytics
+
+---
+
+# S3 Inventory
+
+---
+
+# WebSite Hosting on S3
+
+---
+
+# Pre-Signed URL's
+
+---
+
 # S3 VPC Endpoints
 
 ---
@@ -910,7 +928,7 @@ There are primarily two layers of security you can use to secure you S3 data
 * User level security
   * AWS IAM Policy
 
-The AWS account which creates the object is the owner of the object. 
+The AWS account which creates the object is the owner of the object.
 
 # Tools
 
@@ -919,8 +937,4 @@ The AWS account which creates the object is the owner of the object.
 Here are a few tools which is used to Monitor AWS S3
 
 Security Monkey
-
-
-
-
 
