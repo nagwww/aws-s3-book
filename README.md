@@ -23,10 +23,10 @@
   * [Versioning](#versioning)
     * [Enable](#enable-versioning) / [Status](#get-versioning) / [Suspend](#delete-versioning) / [List](#list-all-the-object-versions)
 * [S3 Event Notifications](#s3-event-notifications)
-  \* 
+  * [Create](#create-event-notification-to-sqs) / [Get](#get-notification) 
+* S3 Replication 
+* \* 
 * [S3 Security](/s3-and-security.md)
-
-
 
 You can checkout all the examples in this book at [https://github.com/nagwww/101-AWS-S3-Hacks](https://github.com/nagwww/101-AWS-S3-Hacks)
 
@@ -37,8 +37,6 @@ You can checkout all the examples in this book at [https://github.com/nagwww/101
 ---
 
 [Boto documentation](http://boto3.readthedocs.io/en/latest/reference/services/s3.html) for S3 is really great, there is never a day that pass by with out me referencing it. Every time I need help I refer to the document, I thought why not just create an example for each and every method and so was this S3 cook book born.
-
-
 
 Digital information is driving exponential growth in data. Data in the form of genes, biometrics, logs, events, photos, videos, comments, etc play a key role in the current digital generation.
 
@@ -766,7 +764,7 @@ Google Cloud Platform
 
 Event notifications are great if you want to further process your data or objects that land in an S3 bucket.
 
-##### Create Notification to SQS
+##### Create event notification to SQS
 
 ```py
 """
@@ -821,6 +819,64 @@ There is no API to Delete a bucket notification.
 ---
 
 S3 replication was a new feature introduced in 2016. One of the prerequisites of replication is versioning.
+
+##### Create replication
+
+```py
+
+"""
+- Hack   : Set up bucket replication
+- AWS CLI: aws s3api put-bucket-replication --bucket us-west-2.nag --replication-configuration  file://./replication.json [ Copy the below policy to f.json ]
+"""
+
+import json
+import boto3
+
+p = {
+
+    "Rules": [
+        {
+            "Status": "Enabled",
+            "Prefix": "",
+            "Destination": {
+                "Bucket": "arn:aws:s3:::us-east-1.nag",
+                "StorageClass": "STANDARD"
+            },
+            "ID": "us-west-2.nag1"
+        }
+    ],
+    "Role": "arn:aws:iam::220580744359:role/service-role/replication_role_for_us-west-2.nag_to_us-east-1.nag"
+}
+
+if __name__ == "__main__":
+    client = boto3.client('s3')
+    bucketname = "us-west-2.nag"
+    print client.put_bucket_replication(Bucket=bucketname, ReplicationConfiguration=p)
+```
+
+##### Get Replication configuration 
+
+```py
+
+"""
+- Hack   : Get the replication configuration of an S3 bucket
+- AWS CLI: aws s3api get-bucket-replication --bucket us-west-2.nag
+"""
+
+import json
+import boto3
+
+if __name__ == "__main__":
+    client = boto3.client('s3')
+    bucketname = "us-west-2.nag"
+    print client.get_bucket_replication(Bucket=bucketname)
+```
+
+##### Delete bucket replication
+
+
+
+# 
 
 # S3 VPC Endopints
 
