@@ -26,6 +26,8 @@
   \* 
 * [S3 Security](/s3-and-security.md)
 
+
+
 You can checkout all the examples in this book at [https://github.com/nagwww/101-AWS-S3-Hacks](https://github.com/nagwww/101-AWS-S3-Hacks)
 
 # 
@@ -33,6 +35,10 @@ You can checkout all the examples in this book at [https://github.com/nagwww/101
 # Introduction..
 
 ---
+
+[Boto documentation](http://boto3.readthedocs.io/en/latest/reference/services/s3.html) for S3 is really great, there is never a day that pass by with out me referencing it. Every time I need help I refer to the document, I thought why not just create an example for each and every method and so was this S3 cook book born.
+
+
 
 Digital information is driving exponential growth in data. Data in the form of genes, biometrics, logs, events, photos, videos, comments, etc play a key role in the current digital generation.
 
@@ -809,8 +815,6 @@ if __name__ == "__main__":
 Delete Notification
 
 There is no API to Delete a bucket notification.
-
-
 
 # S3 Replication
 
