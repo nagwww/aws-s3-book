@@ -25,8 +25,7 @@
 * [S3 Event Notifications](#s3-event-notifications)
   * [Create](#create-event-notification-to-sqs) / [Get](#get-notification) 
 * [S3 Replication](#s3-replication)
-  * [Create](#create-replication) / [Get](#get-replication-configuration) / [Delete](#delete-bucket-replication) 
-* \* 
+  * [Create](#create-replication) / [Get](#get-replication-configuration) / [Delete](#delete-bucket-replication)
 * [S3 Security](/s3-and-security.md)
 
 You can checkout all the examples in this book at [https://github.com/nagwww/101-AWS-S3-Hacks](https://github.com/nagwww/101-AWS-S3-Hacks)
@@ -874,7 +873,6 @@ if __name__ == "__main__":
 ##### Delete bucket replication
 
 ```py
-
 """
 - Hack   : Delete bucket replication
 - AWS CLI: aws s3api delete-bucket-replication --bucket us-west-2.nag
@@ -890,13 +888,11 @@ if __name__ == "__main__":
     print client.delete_bucket_replication(Bucket=bucketname)
 ```
 
-
-
 # S3 VPC Endpoints
 
 ---
 
-
+# 
 
 # S3 and Security
 
