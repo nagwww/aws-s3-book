@@ -760,6 +760,58 @@ Google Cloud Platform
 
 Event notifications are great if you want to further process your data or objects that land in an S3 bucket.
 
+##### Create Notification to SQS
+
+```py
+"""
+- Hack   : Create a SQS notification
+- AWS CLI: aws s3api put-bucket-notification-configuration --bucket us-west-2.nag --notification-configuration   file://./notification.json
+"""
+
+import json
+import boto3
+
+p = {
+    "QueueConfigurations": {
+        "QueueArn": "arn:aws:sqs:us-west-2:220580744359:nag1",
+        "Events": [
+            "s3:ObjectCreated:Post"
+        ],
+        "Id": "MjcwMTRjOGUtZDVkYS00YTA3LThkMTgtNTEwNmI3OTExNzBi",
+        "Event": "s3:ObjectCreated:Post"
+    }
+}
+
+
+if __name__ == "__main__":
+    client = boto3.client('s3')
+    bucketname = "us-west-2.nag"
+    print client.put_bucket_notification_configuration(Bucket=bucketname, NotificationConfiguration=p)
+```
+
+##### Get Notification
+
+```py
+"""
+- Hack   : Get the S3 bucket notification
+- AWS CLI: aws s3api get-bucket-notification --bucket us-west-2.nag
+"""
+
+import json
+import boto3
+
+if __name__ == "__main__":
+    client = boto3.client('s3')
+    bucketname = "us-west-2.nag"
+    print client.get_bucket_notification_configuration(Bucket=bucketname)
+```
+
+Delete Notification
+
+There is no API to Delete a bucket notification.
+
+
+
 # S3 Replication
 
 ---
