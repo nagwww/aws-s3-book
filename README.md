@@ -915,7 +915,7 @@ if __name__ == "__main__":
 
 # 
 
-# S3 and Security
+# S3 , Security and Tools
 
 ---
 
@@ -930,11 +930,22 @@ There are primarily two layers of security you can use to secure you S3 data
 
 The AWS account which creates the object is the owner of the object.
 
-# Tools
+#### Security Monkey
 
----
+Security Monkey is an OpenSource application from Netflix \( NetflixOSS\) which monitors/alerts/reports one or multiple AWS accounts for anomalies. 
 
-Here are a few tools which is used to Monitor AWS S3
+Security Monkey monitors AWS S3 buckets across multiple AWS accounts, here are few things which it can be used for,
 
-Security Monkey
+* Security Monkey acts as the source control for your S3 buckets policies, ACL, lifecycle rules.
+* Generates an audit report of all the current issues \( Ex : AWS S3 buckets which are accessible to everyone shared across unknown AWS accounts and have conditional statements \)
+* Creates an e-mail alert when a S3 bucket is added or deleted.
+* AWS S3 resource policies are used to grant fine grain access controls for S3 buckets and objects. All the ACL’s and policies are stored in security monkey which triggers alerts when changes are done. Comes handy when you have sensitive S3 buckets and you want to monitor for changes.
+* Tracks S3 buckets for bucket-level encryption.
+* Tracks versioning of buckets.
+* Tracks the lifecycle object of an S3 bucket. Lifecycle rules enable you to automatically archive/delete S3 objects based on predefined rule sets.
+* Monitors S3 ACL’s and bucket policies since last check and alerts when buckets are publicly accessible. Here is a good read on 100’s AWS S3 buckets left open exposing private data
+  [https://www.helpnetsecurity.com/2013/03/27/thousands-of-amazon-s3-buckets-left-open-exposing-private-data/](https://www.helpnetsecurity.com/2013/03/27/thousands-of-amazon-s3-buckets-left-open-exposing-private-data/)
+* Click here for more info on [Security Monkey](https://medium.com/@nagwww/secops-with-security-monkey-2ad26cccd5ec)
+
+
 
