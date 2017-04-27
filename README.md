@@ -26,8 +26,8 @@
   * [Create](#create-event-notification-to-sqs) / [Get](#get-notification) 
 * [S3 Replication](#s3-replication)
   * [Create](#create-replication) / [Get](#get-replication-configuration) / [Delete](#delete-bucket-replication)
-* [S3 Security](/s3-and-security.md)
-* [Tools](#tools)
+* [S3 Security & Tools](#s3-security-and-tools)
+  * [Security Monkey](#security-monkey)
 
 You can checkout all the examples in this book at [https://github.com/nagwww/101-AWS-S3-Hacks](https://github.com/nagwww/101-AWS-S3-Hacks)
 
@@ -915,7 +915,7 @@ if __name__ == "__main__":
 
 # 
 
-# S3 , Security and Tools
+# S3 security and tools
 
 ---
 
@@ -932,12 +932,12 @@ The AWS account which creates the object is the owner of the object.
 
 #### Security Monkey
 
-Security Monkey is an OpenSource application from Netflix \( NetflixOSS\) which monitors/alerts/reports one or multiple AWS accounts for anomalies. 
+Security Monkey is an OpenSource application from Netflix \( NetflixOSS\) which monitors/alerts/reports one or multiple AWS accounts for anomalies.
 
 Security Monkey monitors AWS S3 buckets across multiple AWS accounts, here are few things which it can be used for,
 
 * Security Monkey acts as the source control for your S3 buckets policies, ACL, lifecycle rules.
-* Generates an audit report of all the current issues \( Ex : AWS S3 buckets which are accessible to everyone shared across unknown AWS accounts and have conditional statements \)
+* Generates an audit report of all the current issues \( Ex : AWS S3 buckets which are accessible to everyone shared across unknown AWS accounts and have conditional statements \)
 * Creates an e-mail alert when a S3 bucket is added or deleted.
 * AWS S3 resource policies are used to grant fine grain access controls for S3 buckets and objects. All the ACL’s and policies are stored in security monkey which triggers alerts when changes are done. Comes handy when you have sensitive S3 buckets and you want to monitor for changes.
 * Tracks S3 buckets for bucket-level encryption.
