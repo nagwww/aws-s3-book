@@ -49,6 +49,13 @@ Here are some basics of data
 
 * Each of the 0's and 1's is called a bit - Binary digit
 * Eight bits form a Byte
+* 1000 bytes form a KiloByte \( KB \)
+* 1000 KB form a MegaByte \(MB \)
+* 1000 MB form a GigaByte \( GB \)
+* 1000 GB form a Terabyte \( TB \)
+* 1000 TB form a Petabyte\( PB \)
+* 1000 PB form a Exabyte \( EB \)
+* 1000 EB form a Zettabyte \( ZB \)
 
 ##### Running code and examples \[ test \]
 
