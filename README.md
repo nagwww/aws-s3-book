@@ -26,6 +26,8 @@
   * [Create](#create-event-notification-to-sqs) / [Get](#get-notification) 
 * [S3 Replication](#s3-replication)
   * [Create](#create-replication) / [Get](#get-replication-configuration) / [Delete](#delete-bucket-replication)
+* [S3 Analytics](#s3-analytics)
+  * [Create](#create-analytics) / [List](#list-analytics) / [Get](#get-analytics) / [Delete](#delete-analytics)
 * [S3 Website hosting](#website-hosting-on-s3)
   * [Create](#create-website) / [Get](#get-website) / [Delete](#delete-website) 
 * [S3 Security & Tools](#s3-security-and-tools)
@@ -50,12 +52,12 @@ Here are some basics of data
 * Each of the 0's and 1's is called a bit - Binary digit
 * Eight bits form a Byte
 * 1000 bytes form a KiloByte \( KB \)
-* 1000 KB form a MegaByte \(MB \)
-* 1000 MB form a GigaByte \( GB \)
-* 1000 GB form a Terabyte \( TB \)
-* 1000 TB form a Petabyte\( PB \)
-* 1000 PB form a Exabyte \( EB \)
-* 1000 EB form a Zettabyte \( ZB \)
+* 1000 KB form a MegaByte  \( MB \)
+* 1000 MB form a GigaByte  \( GB \)
+* 1000 GB form a TeraByte   \( TB \)
+* 1000 TB form a PetaByte   \( PB \)
+* 1000 PB form a ExaByte    \( EB \)
+* 1000 EB form a ZettaByte \( ZB \)
 
 ##### Running code and examples \[ test \]
 
@@ -904,9 +906,92 @@ if __name__ == "__main__":
 
 The largest object that can be uploaded in a single PUT is 5 gigabytes. For objects larger than 100 megabytes, [Multipart Upload](http://docs.amazonwebservices.com/AmazonS3/latest/dev/UploadingObjects.html) is an option
 
-# S3 Anaytics
+# S3 Analytics
 
 ---
+
+S3 analytics
+
+##### Create analytics
+
+```py
+
+"""
+- Hack   : Create analytics configurations for an S3 bucket.
+- AWS CLI: aws s3api put-bucket-analytics-configuration --bucket us-west-2.nag --analytics-configuration '{"Id": "full1","StorageClassAnalysis": {}}' --id "full1"
+"""
+
+import boto3
+
+config = {"Id": "full1","StorageClassAnalysis": {}}
+
+if __name__ == "__main__":
+    client = boto3.client('s3')
+    bucketname = "us-west-2.nag"
+    analytics_config = client.put_bucket_analytics_configuration(Bucket=bucketname, Id="full1", AnalyticsConfiguration=config)
+    print analytics_config
+
+```
+
+
+
+##### List analytics
+
+```py
+"""
+- Hack   : Lists the analytics configurations for an S3 bucket.
+- AWS CLI: aws s3api list-bucket-analytics-configurations --bucket us-west-2.nag
+"""
+
+import boto3
+
+if __name__ == "__main__":
+    client = boto3.client('s3')
+    bucketname = "us-west-2.nag"
+    analytics_config = client.list_bucket_analytics_configurations(Bucket=bucketname)
+    print analytics_config["AnalyticsConfigurationList"]
+```
+
+##### Get analytics
+
+```
+
+"""
+- Hack   : Get the analytics configurations for an S3 bucket.
+- AWS CLI: aws s3api get-bucket-analytics-configuration --bucket us-west-2.nag --id full
+"""
+
+import boto3
+
+if __name__ == "__main__":
+    client = boto3.client('s3')
+    bucketname = "us-west-2.nag"
+    analytics_config = client.get_bucket_analytics_configuration(Bucket=bucketname, Id="full")
+    print analytics_config["AnalyticsConfiguration"]
+```
+
+##### Delete analytics
+
+```py
+#!/usr/bin/python
+
+"""
+- Hack   : Delete analytics configurations for an S3 bucket.
+- AWS CLI: aws s3api delete-bucket-analytics-configuration --bucket us-west-2.nag --id full1
+"""
+
+import boto3
+
+
+if __name__ == "__main__":
+    client = boto3.client('s3')
+    bucketname = "us-west-2.nag"
+    analytics_config = client.delete_bucket_analytics_configuration(Bucket=bucketname, Id="full1")
+    print analytics_config
+
+```
+
+
 
 # S3 Inventory
 
