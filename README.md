@@ -907,7 +907,7 @@ if __name__ == "__main__":
 
 ---
 
-AWS S3 bucket can also be used for hosting static websites. 
+AWS S3 bucket can also be used for hosting static websites.
 
 Set up a website for an S3 bucket
 
@@ -933,13 +933,11 @@ if __name__ == "__main__":
     client = boto3.client('s3')
     bucketname = "us-west-2.nag"
     print client.put_bucket_website(Bucket=bucketname, WebsiteConfiguration=p)
-
 ```
 
 ##### Get Website
 
 ```py
-
 """
 - Hack   : Get the website configuration of an S3 bucket
 - AWS CLI: aws s3api get-bucket-website --bucket us-west-2.nag
@@ -957,7 +955,6 @@ if __name__ == "__main__":
 ##### Delete Website
 
 ```
-
 """
 - Hack   : Delete website configuration for an S3 bucket
 - AWS CLI: aws s3api delete-bucket-website --bucket us-west-2.nag
@@ -970,22 +967,38 @@ if __name__ == "__main__":
     client = boto3.client('s3')
     bucketname = "us-west-2.nag"
     print client.delete_bucket_website(Bucket=bucketname)
-
 ```
-
-# 
 
 # Pre-Signed URL's
 
 ---
 
-
+The Endpoint simply changes the way in which the requests are routed from EC2 to S3.
 
 # S3 VPC Endpoints
 
 ---
 
-# 
+VPC endpoint enables you to create a private connection between your VPC and S3, meaning all the S3 calls would go from your VPC to S3 privately and not over the internet. Endpoints are 
+
+* Virtual devices, 
+* horizontally scaled, 
+* redundant, and 
+* highly available VPC components that allow communication between instances in your VPC and AWS services without imposing availability risks or bandwidth constraints on your network traffic.
+
+VPC Endpoint simply changes the way in which the requests are routed from EC2 to S3.
+
+One of the perks with VPC endpoints is you can restrict access to your bucket based on a VPC, here is a quick example
+
+```
+
+```
+
+Create VPC endpoint,
+
+
+
+
 
 # S3 security and tools
 
