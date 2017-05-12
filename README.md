@@ -915,7 +915,6 @@ S3 analytics
 ##### Create analytics
 
 ```py
-
 """
 - Hack   : Create analytics configurations for an S3 bucket.
 - AWS CLI: aws s3api put-bucket-analytics-configuration --bucket us-west-2.nag --analytics-configuration '{"Id": "full1","StorageClassAnalysis": {}}' --id "full1"
@@ -930,10 +929,7 @@ if __name__ == "__main__":
     bucketname = "us-west-2.nag"
     analytics_config = client.put_bucket_analytics_configuration(Bucket=bucketname, Id="full1", AnalyticsConfiguration=config)
     print analytics_config
-
 ```
-
-
 
 ##### List analytics
 
@@ -955,7 +951,6 @@ if __name__ == "__main__":
 ##### Get analytics
 
 ```
-
 """
 - Hack   : Get the analytics configurations for an S3 bucket.
 - AWS CLI: aws s3api get-bucket-analytics-configuration --bucket us-west-2.nag --id full
@@ -988,14 +983,13 @@ if __name__ == "__main__":
     bucketname = "us-west-2.nag"
     analytics_config = client.delete_bucket_analytics_configuration(Bucket=bucketname, Id="full1")
     print analytics_config
-
 ```
-
-
 
 # S3 Inventory
 
 ---
+
+# 
 
 # WebSite Hosting on S3
 
