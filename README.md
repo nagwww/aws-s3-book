@@ -895,6 +895,8 @@ if __name__ == "__main__":
 
 ---
 
+The largest object that can be uploaded in a single PUT is 5 gigabytes. For objects larger than 100 megabytes, [Multipart Upload](http://docs.amazonwebservices.com/AmazonS3/latest/dev/UploadingObjects.html) is an option
+
 # S3 Anaytics
 
 ---
@@ -979,7 +981,7 @@ The Endpoint simply changes the way in which the requests are routed from EC2 to
 
 ---
 
-VPC endpoint enables you to create a private connection between your VPC and S3, meaning all the S3 calls would go from your VPC to S3 privately and not over the internet. Endpoints are 
+VPC endpoint enables you to create a private connection between your VPC and S3, meaning all the S3 calls would go from your VPC to S3 privately and not over the internet. Endpoints are
 
 * Virtual devices, 
 * horizontally scaled, 
@@ -995,10 +997,6 @@ One of the perks with VPC endpoints is you can restrict access to your bucket ba
 ```
 
 Create VPC endpoint,
-
-
-
-
 
 # S3 security and tools
 
