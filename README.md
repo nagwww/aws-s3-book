@@ -26,6 +26,8 @@
   * [Create](#create-event-notification-to-sqs) / [Get](#get-notification) 
 * [S3 Replication](#s3-replication)
   * [Create](#create-replication) / [Get](#get-replication-configuration) / [Delete](#delete-bucket-replication)
+* [S3 Website hosting](#website-hosting-on-s3)
+  * [Create](#create-website) / [Get](#get-website) / [Delete](#delete-website) 
 * [S3 Security & Tools](#s3-security-and-tools)
   * [Security Monkey](#security-monkey)
 
@@ -905,9 +907,79 @@ if __name__ == "__main__":
 
 ---
 
+AWS S3 bucket can also be used for hosting static websites. 
+
+Set up a website for an S3 bucket
+
+##### Create Website
+
+```py
+"""
+- Hack   : Set up a website for an S3 bucket
+- AWS CLI: aws s3api put-bucket-website --bucket us-west-2.nag --website-configuration  file://./website.json
+[ Copy the below policy to f.json ]
+"""
+
+import json
+import boto3
+
+p = {
+    "IndexDocument": {
+        "Suffix": "index.html"
+    }
+}
+
+if __name__ == "__main__":
+    client = boto3.client('s3')
+    bucketname = "us-west-2.nag"
+    print client.put_bucket_website(Bucket=bucketname, WebsiteConfiguration=p)
+
+```
+
+##### Get Website
+
+```py
+
+"""
+- Hack   : Get the website configuration of an S3 bucket
+- AWS CLI: aws s3api get-bucket-website --bucket us-west-2.nag
+"""
+
+import json
+import boto3
+
+if __name__ == "__main__":
+    client = boto3.client('s3')
+    bucketname = "us-west-2.nag"
+    print client.get_bucket_website(Bucket=bucketname)
+```
+
+##### Delete Website
+
+```
+
+"""
+- Hack   : Delete website configuration for an S3 bucket
+- AWS CLI: aws s3api delete-bucket-website --bucket us-west-2.nag
+"""
+
+import json
+import boto3
+
+if __name__ == "__main__":
+    client = boto3.client('s3')
+    bucketname = "us-west-2.nag"
+    print client.delete_bucket_website(Bucket=bucketname)
+
+```
+
+# 
+
 # Pre-Signed URL's
 
 ---
+
+
 
 # S3 VPC Endpoints
 
