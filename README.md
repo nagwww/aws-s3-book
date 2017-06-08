@@ -774,7 +774,7 @@ Google Cloud Platform
 
 ---
 
-Event notifications are great if you want to further process your data or objects that land in an S3 bucket.
+Event notifications are great if you want to further process your data for objects that land in an S3 bucket.
 
 ##### Create event notification to SQS
 
@@ -1078,8 +1078,26 @@ VPC Endpoint simply changes the way in which the requests are routed from EC2 to
 
 One of the perks with VPC endpoints is you can restrict access to your bucket based on a VPC, here is a quick example
 
-```
-
+```py
+{
+        "Resource": [
+          "arn:aws:s3:::us-west-2.nag",
+          "arn:aws:s3:::us-west-2.nag/*"
+        ],
+        "Effect": "Allow",
+        "Sid": "SID-Nag",
+        "Action": [
+          "s3:GetObject"
+        ],
+        "Condition": {
+          "StringEquals": {
+            "aws:sourceVpc": [
+                  "vpc-123456"
+            ]
+          }
+        },
+        "Principal": "*"
+}
 ```
 
 Create VPC endpoint,
