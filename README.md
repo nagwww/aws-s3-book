@@ -35,13 +35,13 @@
 
 You can checkout all the examples in this book at [https://github.com/nagwww/101-AWS-S3-Hacks](https://github.com/nagwww/101-AWS-S3-Hacks)
 
-# 
+
 
 # Introduction..
 
 ---
 
-[Boto documentation](http://boto3.readthedocs.io/en/latest/reference/services/s3.html) for S3 is really great, there is never a day that pass by with out referring. Every time I need help I refer to the document, which inspired me to create an example for each and every method and so was this S3 cook book born.
+[Boto documentation](http://boto3.readthedocs.io/en/latest/reference/services/s3.html) for S3 is really great. There is never a day, that pass by with out referring. Every time I need help I refer to the documentation, which inspired me to create an example for each and every method and so was this AWS S3 101 hacks born.
 
 Digital information is driving exponential growth in data. Data in the form of genes, biometrics, logs, events, photos, videos, comments, etc play a key role in the current digital generation.
 
@@ -61,11 +61,16 @@ Here are some basics of data
 
 ##### Running code and examples \[ test \]
 
-Option 1 :
+Option 1 : 
 
 Option 2 :
 
-Contributors
+Contributors/Authors
+
+ AWS released 100k feature in the last couple years, as i am writing this I am pretty sure this might be outdated in the next min, to keep up with the pace of innovation I take PR, so feel free to send in a PR and more than happy to take PR. 
+
+* Nag Medida
+* Click here
 
 # What is S3
 
@@ -77,12 +82,12 @@ The one word answer for it's widely used popularity is the ease of use at any sc
 
 S3 is used to store your data on internet. In layman terms
 
-* Imagine like a Folder in your C drive. Just that the Folder is present on internet.
-* Imagine like a Directory on your UNIX/UBUNTU server, just that the directory is on internet.
+* Imagine  a Folder in your C drive. Just that the Folder is present on internet.
+* Imagine a Directory on your UNIX/UBUNTU server, just that the directory is on internet.
 
   ?![](/assets/s31.jpg)
 
-* You can store your personal files \( Photos, videos, documents \). Why buy an external hard drive you can as well use S3
+* You can store your personal files \( Photos, videos, documents \). 
 
 * Database administrators can use it to store the RMAN Backups
 
@@ -102,11 +107,11 @@ A few things to keep in mind when working with AWS S3 buckets,
 
 #### Create an S3 bucket
 
-Come up with a bucket naming convention, for me I would like append the AWS region for all the buckets.
+Come up with a bucket naming convention, for me I would like append  AWS region for all the buckets.
 
 By default when you create an S3 bucket if you do not specify a region they are created in "us-east-1" region
 
-Using AWS CLI :
+
 
 ```py
 """
