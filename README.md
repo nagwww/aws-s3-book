@@ -35,8 +35,6 @@
 
 You can checkout all the examples in this book at [https://github.com/nagwww/101-AWS-S3-Hacks](https://github.com/nagwww/101-AWS-S3-Hacks)
 
-
-
 # Introduction..
 
 ---
@@ -61,13 +59,13 @@ Here are some basics of data
 
 ##### Running code and examples \[ test \]
 
-Option 1 : 
+Option 1 :
 
 Option 2 :
 
 Contributors/Authors
 
- AWS released 100k feature in the last couple years, as i am writing this I am pretty sure this might be outdated in the next min, to keep up with the pace of innovation I take PR, so feel free to send in a PR and more than happy to take PR. 
+AWS released 100k feature in the last couple years, as i am writing this I am pretty sure this might be outdated in the next min, to keep up with the pace of innovation I take PR, so feel free to send in a PR and more than happy to take PR.
 
 * Nag Medida
 * Click here
@@ -87,7 +85,7 @@ S3 is used to store your data on internet. In layman terms
 
   ?![](/assets/s31.jpg)
 
-* You can store your personal files \( Photos, videos, documents \). 
+* You can store your personal files \( Photos, videos, documents \).
 
 * Database administrators can use it to store the RMAN Backups
 
@@ -110,8 +108,6 @@ A few things to keep in mind when working with AWS S3 buckets,
 Come up with a bucket naming convention, for me I would like append  AWS region for all the buckets.
 
 By default when you create an S3 bucket if you do not specify a region they are created in "us-east-1" region
-
-
 
 ```py
 """
@@ -1066,7 +1062,55 @@ if __name__ == "__main__":
 
 ---
 
-The Endpoint simply changes the way in which the requests are routed from EC2 to S3.
+All objects and buckets by default are private. The pre-signed URLs are useful if you want your user/customer to be able upload a specific object to your bucket, but you don't require them to have AWS security credentials or permissions. When you create a pre-signed URL, you must provide your security credentials, specify a bucket name, an object key, an HTTP method \(PUT for uploading objects\), and an expiration date and time. The pre-signed URLs are valid only for the specified duration.
+
+##### Generate a pre-signed URL to post
+
+```py
+#!/usr/bin/python
+
+"""
+- Hack   : Generate a presigned url for post
+- AWS CLI: N/A
+"""
+
+import json
+import boto3
+
+if __name__ == "__main__":
+    client = boto3.client('s3', region_name="us-west-2")
+    bucketname = "us-west-2.nag"
+    post_url = client.generate_presigned_post(Bucket=bucketname, Key="hello1.txt", ExpiresIn=3600,
+                                         Fields={"acl": "public-read", "Content-Type": "html/txt"},
+                                         Conditions=[
+                                             {"acl": "public-read"},
+                                             {"Content-Type": "html/txt"}
+                                         ],
+                                         )
+    print "URL to test : ", 'https://{}.s3.amazonaws.com/{}'.format(bucketname,"hello1.txt"), post_url
+
+```
+
+##### Generate a pre-signed URL to get
+
+Note : Unlike other methods you have to provide the region in the when you create the client, else when you access the following error is thrown "The bucket you are attempting to access must be addressed using the specified endpoint"
+
+```py
+#!/usr/bin/python
+
+"""
+- Hack   : Generate a presigned url
+- AWS CLI: There is no CLI
+"""
+
+import boto3
+
+if __name__ == "__main__":
+    client = boto3.client('s3', region_name="us-west-2")
+    bucketname = "us-west-2.nag"
+    post_url = client.generate_presigned_url('get_object', {'Bucket': bucketname , 'Key':'hello1.txt' }, ExpiresIn=3600)
+    print "URL to test : ", post_url
+```
 
 # S3 VPC Endpoints
 
@@ -1111,7 +1155,7 @@ Create VPC endpoint,
 
 ---
 
-There are primarily two layers of security you can use to secure you S3 data
+There are primarily two layers of security you can use to secure your S3 data
 
 * Resource level security
   * S3 ACLS.
