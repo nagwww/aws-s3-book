@@ -17,7 +17,7 @@
   * [Create](#create-an-acl-for-bucket) / [Get](#get-an-acl-for-bucket) / [Delete](#delete-acl) \[ ACL \]
   * [Create](#create-a-s3-bucket-policy) / [Get](#get-s3-bucket-policy)  / Delete \[ Policy \]
 * [Archiving,  backup & versioning](#archiving-backup--versioning)
-  * [Lifecycle](#lifecycle) \[ [Create](#create-lifecycle) / [Get](#get-life-cycle) / [Delete](#delete-lifecycle) \]
+  * [Lifecycle](#lifecycle) \[ [Create](#create-lifecycle) / [Get](#get-life-cycle) / [Modify](#modify-lifecycle) / [Delete](#delete-lifecycle) \]
   * Glacier 
   * GCS - Google cloud storage
   * [Versioning](#versioning)
@@ -743,7 +743,7 @@ if __name__ == "__main__":
     print client.get_bucket_lifecycle_configuration(Bucket=bucketname)
 ```
 
-Modify LifeCycle
+##### Modify LifeCycle
 
 There is no option to modify LifeCycle from the API, you will have to create a new one and the existing one will be replaced.
 
@@ -1088,7 +1088,6 @@ if __name__ == "__main__":
                                          ],
                                          )
     print "URL to test : ", 'https://{}.s3.amazonaws.com/{}'.format(bucketname,"hello1.txt"), post_url
-
 ```
 
 ##### Generate a pre-signed URL to get
